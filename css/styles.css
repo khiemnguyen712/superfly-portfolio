@@ -79,6 +79,11 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.fluffy-size {
+  width: 50%;
+  height: auto;
+}
+
 *,
 *::before,
 *::after {

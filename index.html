@@ -51,7 +51,7 @@
 
             <div class="banner-wrapper">
                 <img src="assets/BANNER/1_top_banner.svg" class="blue-band" alt="Blue Band" />
-                <img src="assets/BANNER/2_top_float.svg" class="blue-float parallax-layer" data-speed="0.8" alt="Floating element" />
+                <img src="assets/BANNER/2_top_float.svg" class="blue-float parallax-layer" data-speed="0.4" alt="Floating element" />
                 <div class="centered-text">I'm working as a teacher and a software engineer.</div>
             </div>
 
@@ -87,7 +87,7 @@
 
             function updateParallax() {
                 const scrollTop = window.scrollY;
-                const maxScroll = 80; // adjust this to control how far the parallax moves
+                const maxScroll = 120; // adjust this to control how far the parallax moves
 
                 const clampedScroll = Math.min(scrollTop, maxScroll);
 

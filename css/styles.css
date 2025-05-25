@@ -79,9 +79,12 @@
   --bs-highlight-bg: #fff3cd;
 }
 
-.fluffy-size {
-  width: 50%;
-  height: auto;
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.1); /* 10% bigger on hover */
 }
 
 *,
@@ -98,11 +101,11 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
+  font-family: 'Nunito', sans-serif;
+  font-size: large;
+  font-weight: bold;
   line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
+  color: purple;
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;

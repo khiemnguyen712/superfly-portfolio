@@ -5,18 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
         <title>Khiem Nguyen</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles-custom.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar border-bottom border-body sticky-top">
-            <div class="container">
+        <nav class="navbar justify-content-between sticky-top">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="assets/icon.svg" width="50%" height="auto" alt="..." />
+                    <img src="assets/khiem_logo.svg" width="50%" height="auto" alt="..." />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -36,18 +40,60 @@
                 </div>
             </div>
         </nav>
+
+
         <!-- Page content-->
-        <div class="container">
-            <div class="text-center mt-5">
-                <h1>A Bootstrap 5 Starter Template</h1>
-                <p class="lead">A complete project boilerplate built with Bootstrap</p>
-                <p>Bootstrap v5.2.3</p>
-                <img class="rounded mx-auto d-block fluffy-size" src="assets/Fluffy.svg" alt="fluffy" />
+
+        <div>
+            <div class="container text-center">
+                <p>My name's Khiem. But you should call me poophead.</p>
+            </div>
+            <div class="banner-wrapper">
+                <img src="assets/BANNER/1_blue_band.svg" class="banner-image" alt="..." />
+                <div class="centered-text">I'm working as a teacher and a software engineer.</div>
+            </div>
+            <div class="container text-center">
+                <p>Below are some of my past works.</p>
             </div>
         </div>
+
+
+<!--        <div class="container text-center">-->
+<!--            &lt;!&ndash; Responsive aspect-ratio box &ndash;&gt;-->
+<!--            <div class="mx-auto" style="width: 80%;">-->
+<!--                <img class="mx-auto d-block fluffy-size img-fluid mb-3" src="assets/BUBBLY_CHAT/bubbly_chat_title.svg" alt="fluffy" />-->
+<!--                <div class="position-relative parallax-container" style="aspect-ratio: 5 / 3; width: 100%;">-->
+<!--                    <img src="assets/BUBBLY_CHAT/1_left_guy.svg" class="parallax-layer position-absolute top-0 start-0 w-100 h-100" data-speed="0.2" />-->
+<!--                    <img src="assets/BUBBLY_CHAT/2_right_guy.svg" class="parallax-layer position-absolute top-0 start-0 w-100 h-100" data-speed="0.3" />-->
+<!--                    <img src="assets/BUBBLY_CHAT/3_bubbles.svg" class="parallax-layer position-absolute top-0 start-0 w-100 h-100" data-speed="0.8" />-->
+<!--                    <img src="assets/BUBBLY_CHAT/4_left_box.svg" class="parallax-layer position-absolute top-0 start-0 w-100 h-100" data-speed="0.2" />-->
+<!--                    <img src="assets/BUBBLY_CHAT/5_right_box.svg" class="parallax-layer position-absolute top-0 start-0 w-100 h-100" data-speed="0.3" />-->
+<!--                    <img src="assets/BUBBLY_CHAT/6_chat_field.svg" class="parallax-layer position-absolute top-0 start-0 w-100 h-100" data-speed="0.4" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script>
+            const layers = document.querySelectorAll(".parallax-layer");
+
+            function updateParallax() {
+                const scrollTop = window.scrollY;
+                const maxScroll = 50; // adjust this to control how far the parallax moves
+
+                const clampedScroll = Math.min(scrollTop, maxScroll);
+
+                layers.forEach(layer => {
+                    const speed = parseFloat(layer.dataset.speed);
+                    const offset = clampedScroll * speed;
+                    layer.style.transform = `translateY(${offset}px)`;
+                });
+            }
+
+            window.addEventListener("scroll", updateParallax);
+        </script>
+
     </body>
 </html>

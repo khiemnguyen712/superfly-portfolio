@@ -2,21 +2,48 @@
     position: relative;
     width: 100%;
     height: auto;
+    overflow: hidden;
 }
 
-.banner-image {
+.blue-banner {
     width: 100%;
-    height: auto;
     display: block;
 }
 
 .centered-text {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white; /* or black, depending on your image */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
     text-align: center;
-    z-index: 1;
-    white-space: nowrap; /* prevents wrapping if you want it all on one line */
+    z-index: 2;
+}
+
+.purple-band-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10%;
+    text-align: center;
+    z-index: 3;
+}
+
+.purple-band-image {
+    width: 100%;
+    display: block;
+}
+
+.life-timer {
+    position: absolute;
+    bottom: 1.2rem; /* Adjust based on how your SVG looks */
+    width: 100%;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    z-index: 4;
+    text-align: center;
+    margin: 0;
 }

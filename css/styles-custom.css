@@ -1,49 +1,35 @@
 .banner-wrapper {
     position: relative;
     width: 100%;
-    height: auto;
-    overflow: hidden;
 }
 
-.blue-banner {
+/* Let the base image determine height */
+.blue-band {
     width: 100%;
+    height: auto;
     display: block;
+    position: relative; /* important: NOT absolute */
+    z-index: 1;
 }
 
+/* Floater matches banner’s size and position */
+.blue-float {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Text overlays */
 .centered-text {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    z-index: 2;
-}
-
-.purple-band-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 10%;
-    text-align: center;
     z-index: 3;
-}
-
-.purple-band-image {
-    width: 100%;
-    display: block;
-}
-
-.life-timer {
-    position: absolute;
-    bottom: 1.2rem; /* Adjust based on how your SVG looks */
-    width: 100%;
     color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-    z-index: 4;
     text-align: center;
-    margin: 0;
 }

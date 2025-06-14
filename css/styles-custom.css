@@ -7,12 +7,10 @@
 .blue-band {
     width: 100%;
     height: auto;
-    display: block;
-    position: relative; /* important: NOT absolute */
+    position: relative;
     z-index: 1;
 }
 
-/* Floater matches banner’s size and position */
 .blue-float {
     position: absolute;
     top: 0;
@@ -20,11 +18,9 @@
     width: 100%;
     height: auto;
     z-index: 2;
-    pointer-events: none;
 }
 
-/* Text overlays */
-.centered-text {
+.banner-centered-text {
     position: absolute;
     top: 50%;
     left: 50%;

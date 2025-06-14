@@ -26,8 +26,8 @@
                 <img src="assets/khiem_logo.svg" width="50%" height="auto" alt="..." />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
@@ -49,7 +49,6 @@
         </div>
     </nav>
 
-
     <!-- Page content-->
 
     <div>
@@ -59,7 +58,7 @@
 
         <div class="banner-wrapper">
             <img src="assets/BANNER/1_top_banner.svg" class="blue-band" alt="Blue Band" />
-            <img src="assets/BANNER/2_top_float.svg" class="blue-float parallax-layer" data-speed="0.4"
+            <img src="assets/BANNER/2_top_float.svg" class="blue-float parallax-layer" data-speed="0.8"
                 alt="Floating element" />
             <div class="centered-text">I'm working as a teacher and a software engineer.</div>
         </div>
@@ -96,21 +95,37 @@
         const layers = document.querySelectorAll(".parallax-layer");
 
         function updateParallax() {
-            const scrollTop = window.scrollY;
-            const maxScroll = 120; // adjust this to control how far the parallax moves
-
-            const clampedScroll = Math.min(scrollTop, maxScroll);
+            const viewportHeight = window.innerHeight;
 
             layers.forEach(layer => {
-                const speed = parseFloat(layer.dataset.speed);
-                const offset = clampedScroll * speed;
-                layer.style.transform = `translateY(${offset}px)`;
+                const rect = layer.getBoundingClientRect();
+
+                // Check if the layer is in the viewport
+                if (rect.top < viewportHeight && rect.bottom > 0) {
+                    const speed = parseFloat(layer.dataset.speed);
+
+                    // Amount of the element that has entered the viewport
+                    const visiblePart = Math.min(viewportHeight, rect.bottom) - Math.max(0, rect.top);
+
+                    // You can base movement on how far the top of the element has entered the view
+                    const scrollProgress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+
+                    // Clamp scrollProgress to [0, 1] and apply offset
+                    const clamped = Math.max(0, Math.min(1, scrollProgress));
+                    const maxScroll = 120; // adjust this to control the range
+                    const offset = clamped * maxScroll * speed;
+
+                    layer.style.transform = `translateY(${offset}px)`;
+                } else {
+                    // Reset transform when out of view (optional)
+                    layer.style.transform = `translateY(0px)`;
+                }
             });
         }
 
         window.addEventListener("scroll", updateParallax);
+        window.addEventListener("resize", updateParallax); // handle resize as well
+        window.addEventListener("load", updateParallax);   // initial load
     </script>
-
 </body>
-
 </html>
